@@ -19,10 +19,10 @@ public class CreateNewContact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new_contact);
         //on below line we are initializing our variables.
-        fnameEdt = findViewById(R.id.idEdtFName);
-        lnameEdt = findViewById(R.id.idEdtLName);
-        phoneEdt = findViewById(R.id.idEdtPhoneNumber);
-        emailEdt = findViewById(R.id.idEdtEmail);
+        fnameEdt = findViewById(R.id.idName);
+        lnameEdt = findViewById(R.id.idName);
+        phoneEdt = findViewById(R.id.idPhoneNumber);
+        emailEdt = findViewById(R.id.idEmail);
         addContactEdt = findViewById(R.id.idBtnAddContact);
         //on below line we are adding on click listner for our button.
         addContactEdt.setOnClickListener(new View.OnClickListener() {
