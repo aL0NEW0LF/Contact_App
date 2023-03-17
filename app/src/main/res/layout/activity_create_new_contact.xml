@@ -32,37 +32,29 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="30dp"
-                android:src="@drawable/baseline_person_24"
+                android:src="@drawable/person1"
 
                 >
 
             </ImageView>
             <!--edit text for user name-->
             <EditText
-                android:id="@+id/idFName"
+                android:id="@+id/idName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:drawableStart="@drawable/baseline_text_fields_24"
+                android:drawableStart="@drawable/text"
                 android:drawablePadding="8dp"
-                android:hint=" First name"
+                android:hint="Name"
                 android:inputType="text" />
-            <EditText
-                android:id="@+id/idLName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:drawableStart="@drawable/baseline_text_fields_24"
-                android:drawablePadding="8dp"
-                android:hint="Last name"
-                android:inputType="text" />
+
             <!--edit text for user phone number-->
             <EditText
                 android:id="@+id/idPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:drawableStart="@drawable/baseline_phone_iphone_24"
+                android:drawableStart="@drawable/call"
                 android:drawablePadding="8dp"
                 android:hint="Number"
                 android:inputType="phone" />
@@ -72,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:drawableStart="@drawable/baseline_email_24"
+                android:drawableStart="@drawable/mail"
                 android:drawablePadding="8dp"
                 android:hint="Email"
                 android:inputType="text" />
@@ -83,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/bleu3"
+                android:backgroundTint="@color/bleu2"
                 android:text="Save Contact"
                 android:textAllCaps="false" />
         </LinearLayout>
