@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Build;
@@ -18,11 +19,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private FloatingActionButton but_add;//button add contact
     public static final int PERMISSIONS_REQUEST_READ_CONTACTS = 1;
     MyCustomAdapter dataAdapter = null;
     ListView listView;
@@ -32,7 +35,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
+        //initialization
+        but_add = findViewById(R.id.but_add);
+
+        //add a listener
+        but_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            //move to new activity to add contact
+                Intent intent= new Intent(MainActivity.this,CreateNewContactActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
         btnGetContacts = (Button) findViewById(R.id.btnGetContacts);
         listView = (ListView) findViewById(R.id.lstContacts);

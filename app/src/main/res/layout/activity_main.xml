@@ -36,5 +36,20 @@
             />
 
     </LinearLayout>
+<!-- fab button for contacts add-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/but_add"
+        android:backgroundTint="@color/bleu3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/baseline_person_add_24"
+        app:tint="@color/white"
+        app:elevation="5dp"
+        app:pressedTranslationZ="10dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

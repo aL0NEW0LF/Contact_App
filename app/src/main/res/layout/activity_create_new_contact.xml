@@ -4,38 +4,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CreateNewContactActivity">
+    tools:context=".CreateNewContactActivity"
+    android:layout_margin="50dp">
 
+
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/baseline_person_24"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+
+        >
+    </ImageView>
     <!--edit text for user name-->
     <EditText
-        android:id="@+id/idEdtName"
+        android:id="@+id/idName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter Name"
-        android:inputType="text" />
+        android:hint="Name"
+        android:inputType="text"
+        android:drawableStart="@drawable/baseline_text_fields_24"
+        android:drawablePadding="8dp"/>
     <!--edit text for user phone number-->
     <EditText
-        android:id="@+id/idEdtPhoneNumber"
+        android:id="@+id/idPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter Number"
-        android:inputType="phone" />
+        android:hint="Number"
+        android:inputType="phone"
+        android:drawableStart="@drawable/baseline_phone_iphone_24"
+        android:drawablePadding="8dp"/>
     <!--edit text for user email-->
     <EditText
-        android:id="@+id/idEdtEmail"
+        android:id="@+id/idEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter Email Address"
-        android:inputType="text" />
+        android:hint="Email"
+        android:inputType="text"
+        android:drawableStart="@drawable/baseline_email_24"
+        android:drawablePadding="8dp"/>
     <!--button for saving a new contact-->
     <Button
         android:id="@+id/idBtnAddContact"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:text="Save Contact"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:backgroundTint="@color/bleu3"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
 </LinearLayout>
