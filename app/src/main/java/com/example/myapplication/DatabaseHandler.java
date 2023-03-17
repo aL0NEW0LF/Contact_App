@@ -42,7 +42,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addContact(Contact contact) {
+    static void addContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -123,7 +123,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Getting contacts Count
     public int getContactsCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_CONTACTS;
+        String countQuery = "SELECT * FROM " + TABLE_CONTACTS;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         cursor.close();
