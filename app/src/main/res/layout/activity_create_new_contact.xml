@@ -47,6 +47,15 @@
                 android:drawablePadding="8dp"
                 android:hint="Name"
                 android:inputType="text" />
+            <EditText
+                android:id="@+id/idPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:drawableStart="@drawable/suitcase_2"
+                android:drawablePadding="8dp"
+                android:hint="Profession "
+                android:inputType="text" />
 
             <!--edit text for user phone number-->
             <EditText
