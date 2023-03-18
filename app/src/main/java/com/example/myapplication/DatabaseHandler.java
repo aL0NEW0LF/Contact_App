@@ -6,16 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "contactsManager";
     private static final String TABLE_CONTACTS = "contacts";
     private static final String KEY_ID = "id";
     private static final String KEY_FNAME = "first_name";
-    private static final String KEY_LNAME = "last_name";
+    private static final String KEY_JOB = "job";
     private static final String KEY_PH_NO = "phone_number";
     private static final String KEY_EMAIL = "email";
 
@@ -28,7 +25,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_FNAME + " TEXT,"
-                + KEY_LNAME + " TEXT," + KEY_PH_NO + " TEXT,"
+                + KEY_JOB + " TEXT," + KEY_PH_NO + " TEXT,"
                 + KEY_EMAIL + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
@@ -46,8 +43,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_FNAME, contact.getFName());// Contact First Name
-        values.put(KEY_LNAME, contact.getLName());// Contact Last Name
+        values.put(KEY_FNAME, contact.getName());// Contact First Name
+        values.put(KEY_JOB, contact.getJob());// Contact Last Name
         values.put(KEY_PH_NO, contact.getPhoneNumber()); // Contact Phone
         values.put(KEY_EMAIL, contact.getEmail()); // Contact Email
 
@@ -61,7 +58,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
-                        KEY_FNAME, KEY_LNAME, KEY_PH_NO, KEY_EMAIL }, KEY_ID + "=?",
+                        KEY_FNAME, KEY_JOB, KEY_PH_NO, KEY_EMAIL }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -73,38 +70,49 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // code to get all contacts in a list view
-    public List<Contact> getAllContacts() {
-        List<Contact> contactList = new ArrayList<Contact>();
+//    public List<Contact> getAllContacts() {
+//        List<Contact> contactList = new ArrayList<Contact>();
+//        // Select All Query
+//        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//
+//        // looping through all rows and adding to list
+//        if (cursor.moveToFirst()) {
+//            do {
+//                Contact contact = new Contact();
+//                contact.setID(Integer.parseInt(cursor.getString(0)));
+//                contact.setName(cursor.getString(1));
+//                contact.setJob(cursor.getString(1));
+//                contact.setPhoneNumber(cursor.getString(3));
+//                contact.setEmail(cursor.getString(4));
+//                // Adding contact to list
+//                contactList.add(contact);
+//            } while (cursor.moveToNext());
+//        }
+//
+//        // return contact list
+//        return contactList;
+//    }
+
+    public Cursor getAllContacts() {
+        SQLiteDatabase db = this.getWritableDatabase();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
 
-        SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
-            do {
-                Contact contact = new Contact();
-                contact.setID(Integer.parseInt(cursor.getString(0)));
-                contact.setFName(cursor.getString(1));
-                contact.setLName(cursor.getString(2));
-                contact.setPhoneNumber(cursor.getString(3));
-                contact.setEmail(cursor.getString(4));
-                // Adding contact to list
-                contactList.add(contact);
-            } while (cursor.moveToNext());
-        }
-
         // return contact list
-        return contactList;
+        return cursor;
     }
 
     public int updateContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_FNAME, contact.getFName());
-        values.put(KEY_LNAME, contact.getLName());
+        values.put(KEY_FNAME, contact.getName());
+        values.put(KEY_JOB, contact.getJob());
         values.put(KEY_PH_NO, contact.getPhoneNumber());
         values.put(KEY_EMAIL, contact.getEmail());
 

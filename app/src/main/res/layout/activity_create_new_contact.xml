@@ -38,71 +38,163 @@
 
             </ImageView>
             <!--edit text for user name-->
-            <EditText
-                android:id="@+id/idName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:drawableStart="@drawable/text"
-                android:drawablePadding="8dp"
-                android:hint="Name"
-                android:inputType="text" />
-            <EditText
-                android:id="@+id/idPost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:drawableStart="@drawable/suitcase_2"
-                android:drawablePadding="8dp"
-                android:hint="Profession "
-                android:inputType="text" />
+            <RelativeLayout
+                android:layout_width="283dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="11dp"
+                    android:id="@+id/UserSmallIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/user_1" />
+
+                <EditText
+                    android:id="@+id/idName"
+                    android:layout_width="226dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="11dp"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:padding="5dp"
+                    android:hint="Name"
+                    android:inputType="text" />
+
+            </RelativeLayout>
 
             <!--edit text for user phone number-->
-            <EditText
-                android:id="@+id/idPhoneNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:drawableStart="@drawable/call"
-                android:drawablePadding="8dp"
-                android:hint="Number"
-                android:inputType="phone" />
             <!--edit text for user email-->
-            <EditText
-                android:id="@+id/idEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:drawableStart="@drawable/mail"
-                android:drawablePadding="8dp"
-                android:hint="Email"
-                android:inputType="text" />
             <!--button for saving a new contact-->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/PhoneSmallIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="11dp"
+                    android:src="@drawable/phone" />
+
+                <EditText
+                    android:id="@+id/idPhoneNumber"
+                    android:layout_width="226dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="11dp"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:padding="5dp"
+                    android:hint="Phone"
+                    android:inputType="phone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/EmailSmallIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="11dp"
+                    android:src="@drawable/envelope" />
+
+                <EditText
+                    android:id="@+id/idEmail"
+                    android:layout_width="226dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="11dp"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:padding="5dp"
+                    android:hint="Email"
+                    android:inputType="text" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/JobSmallIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="11dp"
+                    android:src="@drawable/job" />
+
+                <EditText
+                    android:id="@+id/idJob"
+                    android:layout_width="226dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="11dp"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:background="@drawable/rounded_edittext"
+                    android:padding="5dp"
+                    android:hint="Job"
+                    android:inputType="text" />
+            </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/idBtnAddContact"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/bleu2"
+                    android:layout_marginRight="40dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat"
+                    android:backgroundTint="@color/bleu4"
                     android:text="Save"
                     android:textAllCaps="false"
-                    android:layout_weight="1"
-                    android:layout_marginRight="40dp"/>
+                    android:textSize="20sp"
+                    app:cornerRadius="15dp" />
+
                 <Button
                     android:id="@+id/idbutcancel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/bleu2"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bleu4"
+                    android:fontFamily="@font/montserrat"
                     android:text="Cancel"
                     android:textAllCaps="false"
-                    android:layout_weight="1"/>
+                    android:textSize="20sp"
+                    app:cornerRadius="15dp" />
             </LinearLayout>
 
 

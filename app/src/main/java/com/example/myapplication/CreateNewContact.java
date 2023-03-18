@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateNewContact extends AppCompatActivity {
     //creating a new variable for our edit text and button.
-    private EditText fnameEdt, lnameEdt, phoneEdt, emailEdt;
+    private EditText nameEdt, phoneEdt, emailEdt, jobEdt;
     private Button addContactEdt;
 
     @Override
@@ -19,25 +19,24 @@ public class CreateNewContact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new_contact);
         //on below line we are initializing our variables.
-        fnameEdt = findViewById(R.id.idName);
-        lnameEdt = findViewById(R.id.idName);
+        nameEdt = findViewById(R.id.idName);
         phoneEdt = findViewById(R.id.idPhoneNumber);
         emailEdt = findViewById(R.id.idEmail);
+        jobEdt = findViewById(R.id.idJob);
         addContactEdt = findViewById(R.id.idBtnAddContact);
         //on below line we are adding on click listner for our button.
         addContactEdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //on below line we are getting text from our edit text.
-                Contact NewContact = null;
-                NewContact.setFName(fnameEdt.getText().toString());
-                NewContact.setLName(lnameEdt.getText().toString());
+                Contact NewContact = new Contact();
+                NewContact.setName(nameEdt.getText().toString());
+                NewContact.setJob(jobEdt.getText().toString());
                 NewContact.setPhoneNumber(phoneEdt.getText().toString());
                 NewContact.setEmail(emailEdt.getText().toString());
 
                 //on below line we are making a text validation.
-                if (TextUtils.isEmpty(NewContact._fname) && TextUtils.isEmpty(NewContact._lname) && TextUtils.isEmpty(NewContact._phone_number)
-                        && TextUtils.isEmpty(NewContact._phone_number)) {
+                if (TextUtils.isEmpty(NewContact._name) && TextUtils.isEmpty(NewContact._job) && TextUtils.isEmpty(NewContact._phone_number) && TextUtils.isEmpty(NewContact._phone_number)) {
                     Toast.makeText(CreateNewContact.this, "Please enter the data in all fields. ", Toast.LENGTH_SHORT).show();
                 } else {
                     //calling a method to add contact.
