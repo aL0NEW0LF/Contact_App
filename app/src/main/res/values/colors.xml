@@ -13,5 +13,14 @@
     <color name="bleu3">#345da6</color>
     <color name="bleu4">#0077CC</color>
     <color name="bleu5">#41A5EE</color>
+    <color name="green1">#5BC980</color>
+    <color name="green2">#00AB5E</color>
+    <color name="bleu6">#41A5EE</color>
+    <color name="bleu7">#0077CC</color>
+    <color name="red">#EF5350</color>
+
+
+
+
     <color name="background_grey">#F2F2F2</color>
 </resources>
