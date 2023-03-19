@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="411dp"
-        android:layout_height="731dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
@@ -57,11 +57,11 @@
             android:id="@+id/list_contact"
             android:background="@color/background_grey"
             android:layout_width="match_parent"
-            android:layout_height="666dp"
+            android:layout_height="match_parent"
             android:divider="@android:color/transparent"
             android:dividerHeight="10.0sp"
             android:scrollbars="vertical"
-            android:padding="5dp"
+            android:paddingLeft="10dp"
             tools:listitem="@layout/contacts_rv_item" />
 
     </LinearLayout>

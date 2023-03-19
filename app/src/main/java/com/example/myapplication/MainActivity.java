@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnGetContacts;
     DatabaseHandler db;
 
-    ArrayList<String> listItem;
+    ArrayList<Contact> listItem;
     ArrayAdapter adapter;
 
-    List<ContactsInfo> contactsInfoList;
+    List<Contact> contactsInfoList;
 
     @Override
     protected void onDestroy() {
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         db = new DatabaseHandler(this);
 
         getAllContacts();
+
         //add a listener
         but_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,10 +168,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "No Contacts", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor1.moveToNext()) {
-                listItem.add(cursor1.getString(1));
+                listItem.add(new Contact(Integer.parseInt(cursor1.getString(0)), cursor1.getString(1), cursor1.getString(2),
+                        cursor1.getString(3), cursor1.getString(4)));;
             }
 
-            adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listItem);
+            adapter = new ContactsListAdapter(listItem, getApplicationContext());
             listView.setAdapter(adapter);
         }
     }
