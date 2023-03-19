@@ -172,12 +172,13 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="40dp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/montserrat"
                     android:backgroundTint="@color/bleu4"
+                    android:fontFamily="@font/montserrat"
                     android:text="Save"
                     android:textAllCaps="false"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    app:cornerRadius="15dp" />
+                    app:cornerRadius="20dp" />
 
                 <Button
                     android:id="@+id/idbutcancel"
@@ -190,8 +191,9 @@
                     android:fontFamily="@font/montserrat"
                     android:text="Cancel"
                     android:textAllCaps="false"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    app:cornerRadius="15dp" />
+                    app:cornerRadius="20dp" />
             </LinearLayout>
 
 

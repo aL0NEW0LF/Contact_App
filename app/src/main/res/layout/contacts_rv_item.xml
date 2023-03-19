@@ -7,22 +7,22 @@
     android:layout_marginVertical="10dp"
     android:layout_marginHorizontal="10dp"
     app:cardCornerRadius="20dp"
-    app:cardElevation="8dp"
-    android:layout_width="match_parent"
-    android:layout_height="140dp">
+    app:cardElevation="0dp"
+    android:layout_width="wrap_content"
+    android:background="@android:color/transparent"
+    android:layout_height="61dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
+        android:layout_width="395dp"
+        android:layout_height="61dp"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="303dp"
+            android:layout_width="327dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingLeft="20dp"
-            android:paddingTop="20dp">
+            android:paddingTop="15dp">
 
 
             <TextView
@@ -30,51 +30,19 @@
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
-
+                android:fontFamily="@font/montserrat"
                 android:text="Name"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/listjob"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-
-                android:text="Job"
-                android:textColor="@color/bleu3"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/listnum"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-
-                android:text="phone"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/listemail"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-
-                android:text="Email"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/call"
-            android:layout_width="63dp"
-            android:layout_height="60dp"
+            android:layout_width="48dp"
+            android:layout_height="41dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/telephone"
-
-            />
+            app:srcCompat="@drawable/telephone" />
 
     </LinearLayout>
 

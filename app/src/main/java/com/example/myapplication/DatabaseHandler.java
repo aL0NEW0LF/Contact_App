@@ -11,7 +11,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "contactsManager";
     private static final String TABLE_CONTACTS = "contacts";
     private static final String KEY_ID = "id";
-    private static final String KEY_FNAME = "first_name";
+    private static final String KEY_NAME = "name";
     private static final String KEY_JOB = "job";
     private static final String KEY_PH_NO = "phone_number";
     private static final String KEY_EMAIL = "email";
@@ -24,7 +24,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_FNAME + " TEXT,"
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_JOB + " TEXT," + KEY_PH_NO + " TEXT,"
                 + KEY_EMAIL + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
@@ -39,12 +39,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    static void addContact(Contact contact) {
+    void addContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_FNAME, contact.getName());// Contact First Name
-        values.put(KEY_JOB, contact.getJob());// Contact Last Name
+        values.put(KEY_NAME, contact.getName());// Contact First Name
+        values.put(KEY_JOB, contact.getJob());// Contact Job
         values.put(KEY_PH_NO, contact.getPhoneNumber()); // Contact Phone
         values.put(KEY_EMAIL, contact.getEmail()); // Contact Email
 
@@ -57,8 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     Contact getContact(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
-                        KEY_FNAME, KEY_JOB, KEY_PH_NO, KEY_EMAIL }, KEY_ID + "=?",
+        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID, KEY_NAME, KEY_JOB, KEY_PH_NO, KEY_EMAIL }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -99,7 +98,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public Cursor getAllContacts() {
         SQLiteDatabase db = this.getWritableDatabase();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
+        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS + " ORDER BY " + KEY_NAME;
+
 
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -111,7 +111,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_FNAME, contact.getName());
+        values.put(KEY_NAME, contact.getName());
         values.put(KEY_JOB, contact.getJob());
         values.put(KEY_PH_NO, contact.getPhoneNumber());
         values.put(KEY_EMAIL, contact.getEmail());

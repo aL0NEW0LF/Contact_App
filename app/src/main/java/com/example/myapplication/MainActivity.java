@@ -6,20 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private FloatingActionButton but_add;//button add contact
+    ImageButton but_add;//button add contact
     public static final int PERMISSIONS_REQUEST_READ_CONTACTS = 1;
-    MyCustomAdapter dataAdapter = null;
     ListView listView;
     Button btnGetContacts;
     DatabaseHandler db;
@@ -30,17 +28,23 @@ public class MainActivity extends AppCompatActivity {
     List<ContactsInfo> contactsInfoList;
 
     @Override
+    protected void onDestroy() {
+        db.close();
+        super.onDestroy();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //initialization
-        but_add = findViewById(R.id.but_add);
-        btnGetContacts = (Button) findViewById(R.id.btnGetContacts);
-        listView = (ListView) findViewById(R.id.lstContacts);
+        but_add = findViewById(R.id.AddContactBtn);
+        listView = (ListView) findViewById(R.id.list_contact);
         listItem = new ArrayList<>();
 
         db = new DatabaseHandler(this);
 
+        getAllContacts();
         //add a listener
         but_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             //move to new activity to add contact
                 Intent intent= new Intent(MainActivity.this,CreateNewContact.class);
                 startActivity(intent);
-
             }
         });
 
@@ -56,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
 //
 //        listView.setAdapter(dataAdapter);
 //
-        btnGetContacts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getAllContacts();
-            }
-        });
+//        btnGetContacts.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getAllContacts();
+//            }
+//        });
     }
 //
 ////    private void getContacts(){

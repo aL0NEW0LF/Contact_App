@@ -7,12 +7,10 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="411dp"
+        android:layout_height="731dp"
         android:orientation="vertical"
-        android:layout_marginBottom="300px"
-        tools:ignore="MissingConstraints"
-       >
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,54 +19,52 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/delete"
-                android:layout_width="wrap_content"
+                android:id="@+id/Contacts"
+                android:layout_width="244dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="Contact"
-                android:textSize="25sp"
                 android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Contacts"
+                android:textColor="#808080"
+                android:textSize="30sp" />
 
-                />
+            <ImageButton
+                android:id="@+id/searchBtn"
+                android:layout_width="11dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="15dp"
+                app:srcCompat="@drawable/search2"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter" />
 
-            <ImageView
-                android:id="@+id/search"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="220dp"
-                android:src="@drawable/search">
-
-            </ImageView>
+            <ImageButton
+                android:id="@+id/AddContactBtn"
+                android:layout_width="9dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="15dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/add_user" />
 
         </LinearLayout>
 
         <ListView
             android:id="@+id/list_contact"
+            android:background="@color/background_grey"
             android:layout_width="match_parent"
-            android:layout_height="638dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="666dp"
             android:divider="@android:color/transparent"
             android:dividerHeight="10.0sp"
             android:scrollbars="vertical"
+            android:padding="5dp"
             tools:listitem="@layout/contacts_rv_item" />
-            />
 
     </LinearLayout>
 <!-- fab button for contacts add-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/but_add"
-        android:backgroundTint="@color/bleu3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
-        android:src="@drawable/baseline_person_add_24"
-        app:tint="@color/white"
-        app:elevation="5dp"
-        app:pressedTranslationZ="10dp"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
