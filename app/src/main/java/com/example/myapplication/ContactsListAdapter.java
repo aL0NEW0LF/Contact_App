@@ -58,6 +58,16 @@ public class ContactsListAdapter extends ArrayAdapter<Contact> implements View.O
 
         viewHolder.listName.setText(dataModel.getName());
         viewHolder.callBtn.setOnClickListener(this);
+        viewHolder.callBtn.setTag(position);
+
+//        viewHolder.callBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_CALL);
+//                intent.setData(Uri.parse("tel:" + dataModel._phone_number));
+//                startActivity(intent);
+//            }
+//        });
 
         // Return the completed view to render on screen
         return convertView;
