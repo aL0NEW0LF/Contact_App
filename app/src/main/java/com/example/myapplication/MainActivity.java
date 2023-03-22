@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -45,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
         db = new DatabaseHandler(this);
 
         getAllContacts();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Contact dataModel = listItem.get(position);
+                Intent intent= new Intent(MainActivity.this,ContactInfo.class);
+                startActivity(intent);
+            }
+        });
 
         //add a listener
         but_add.setOnClickListener(new View.OnClickListener() {
@@ -174,6 +185,16 @@ public class MainActivity extends AppCompatActivity {
 
             adapter = new ContactsListAdapter(listItem, getApplicationContext());
             listView.setAdapter(adapter);
+
+//            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                    Contact dataModel = listItem.get(position);
+//                    Intent intent= new Intent(MainActivity.this,ContactInfo.class);
+//                    startActivity(intent);
+//                }
+//            });
         }
     }
 }

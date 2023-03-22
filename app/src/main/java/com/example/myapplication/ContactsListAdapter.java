@@ -28,6 +28,27 @@ public class ContactsListAdapter extends ArrayAdapter<Contact> implements View.O
 
     @Override
     public void onClick(View v) {
+//        int position=(Integer) v.getTag();
+//        Object object= getItem(position);
+//        Contact dataModel=(Contact)object;
+//
+//        switch (v.getId())
+//        {
+//            case R.id.call:
+//                //this method is called for making a call.
+//                //on below line we are calling an intent to make a call.
+//                Intent callIntent = new Intent(Intent.ACTION_CALL);
+//                //on below line we are setting data to it.
+//                callIntent.setData(Uri.parse("tel:" + dataModel._phone_number));
+//                //on below line we are checking if the calling permissions are grantedor not.
+//                if (ActivityCompat.checkSelfPermission(mContext,
+//                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+//                    return;
+//                }
+//                //at last we are starting activity.
+//                startActivity(callIntent);
+//                break;
+//        }
     }
 
 
