@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_grey"
     tools:context=".SplashScreenActivity">
 
     <ImageView
         android:id="@+id/app_logo"
         android:layout_width="141dp"
         android:layout_height="177dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="50dp"
         android:background="@android:color/transparent"
         android:src="@drawable/app_logo"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,7 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:background="@android:color/transparent"
+        android:textColor="#000000"
         android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/bleu7"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

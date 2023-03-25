@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".CreateNewContact"
+    tools:context=".UpdateContact"
     android:layout_margin="5dp"
     android:background="@color/background_grey"
     >
@@ -48,7 +48,7 @@
                     android:src="@drawable/user_1" />
 
                 <EditText
-                    android:id="@+id/idName"
+                    android:id="@+id/nameUpdate"
                     android:layout_width="275dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
@@ -82,7 +82,7 @@
                     android:src="@drawable/phone" />
 
                 <EditText
-                    android:id="@+id/idPhoneNumber"
+                    android:id="@+id/phoneUpdate"
                     android:layout_width="275dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
@@ -112,7 +112,7 @@
                     android:src="@drawable/envelope" />
 
                 <EditText
-                    android:id="@+id/idEmail"
+                    android:id="@+id/emailUpdate"
                     android:layout_width="275dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
@@ -142,7 +142,7 @@
                     android:src="@drawable/job" />
 
                 <EditText
-                    android:id="@+id/idJob"
+                    android:id="@+id/jobUpdate"
                     android:layout_width="275dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
@@ -159,34 +159,22 @@
                     android:inputType="text" />
             </RelativeLayout>
 
-            <ImageButton
-                android:id="@+id/resetBtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="129dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/refresharrow" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/idBtnAddContact"
+                    android:id="@+id/idBtnUpdateContact"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="40dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/bleu4"
                     android:fontFamily="@font/montserrat"
-                    android:text="Save"
+                    android:text="Update"
                     android:textAllCaps="false"
                     android:textColor="#000000"
                     android:textSize="20sp"
@@ -197,7 +185,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/bleu4"
                     android:fontFamily="@font/montserrat"

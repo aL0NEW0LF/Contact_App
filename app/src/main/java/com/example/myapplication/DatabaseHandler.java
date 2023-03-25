@@ -24,7 +24,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT,"
                 + KEY_JOB + " TEXT," + KEY_PH_NO + " TEXT,"
                 + KEY_EMAIL + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
@@ -54,19 +54,36 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    Contact getContact(int id) {
+    public Cursor getContact(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID, KEY_NAME, KEY_JOB, KEY_PH_NO, KEY_EMAIL }, KEY_ID + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
+        String query = "SELECT * FROM " + TABLE_CONTACTS + " WHERE " + KEY_NAME + " REGEXP '" + name + "';";
+        Cursor cursor = db.rawQuery(query, null);
+
+//        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID, KEY_NAME, KEY_JOB, KEY_PH_NO, KEY_EMAIL }, KEY_NAME + " LIKE ?",
+//                new String[] { "%" + name + "%" }, null, null, KEY_NAME, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-        // return contact
-        return contact;
+//        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(3),
+//                cursor.getString(4), cursor.getString(2));
+
+        return cursor;
     }
+
+//    Contact getContact(int id) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID, KEY_NAME, KEY_JOB, KEY_PH_NO, KEY_EMAIL }, KEY_ID + "=?",
+//                new String[] { String.valueOf(id) }, null, null, null, null);
+//        if (cursor != null)
+//            cursor.moveToFirst();
+//
+//        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(3),
+//                cursor.getString(4), cursor.getString(2));
+//        // return contact
+//        return contact;
+//    }
 
     // code to get all contacts in a list view
 //    public List<Contact> getAllContacts() {
@@ -99,8 +116,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS + " ORDER BY " + KEY_NAME;
-
-
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // return contact list

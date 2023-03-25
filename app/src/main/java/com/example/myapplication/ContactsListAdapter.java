@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ public class ContactsListAdapter extends ArrayAdapter<Contact> implements View.O
 
     private static class ViewHolder {
         TextView listName;
-        ImageButton callBtn;
+//        ImageButton callBtn;
     }
 
     public ContactsListAdapter(ArrayList<Contact> data, Context context) {
@@ -67,7 +66,7 @@ public class ContactsListAdapter extends ArrayAdapter<Contact> implements View.O
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.contacts_rv_item, parent, false);
             viewHolder.listName = (TextView) convertView.findViewById(R.id.listName);
-            viewHolder.callBtn = (ImageButton) convertView.findViewById(R.id.call);
+//            viewHolder.callBtn = (ImageButton) convertView.findViewById(R.id.call);
 
             result = convertView;
 
@@ -78,8 +77,8 @@ public class ContactsListAdapter extends ArrayAdapter<Contact> implements View.O
         }
 
         viewHolder.listName.setText(dataModel.getName());
-        viewHolder.callBtn.setOnClickListener(this);
-        viewHolder.callBtn.setTag(position);
+//        viewHolder.callBtn.setOnClickListener(this);
+//        viewHolder.callBtn.setTag(position);
 
 //        viewHolder.callBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
