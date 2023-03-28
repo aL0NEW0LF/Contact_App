@@ -56,20 +56,30 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public Cursor getContact(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
-
-        String query = "SELECT * FROM " + TABLE_CONTACTS + " WHERE " + KEY_NAME + " REGEXP '" + name + "';";
-        Cursor cursor = db.rawQuery(query, null);
-
-//        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID, KEY_NAME, KEY_JOB, KEY_PH_NO, KEY_EMAIL }, KEY_NAME + " LIKE ?",
-//                new String[] { "%" + name + "%" }, null, null, KEY_NAME, null);
-        if (cursor != null)
-            cursor.moveToFirst();
-
-//        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(3),
-//                cursor.getString(4), cursor.getString(2));
+        String[] columns = {"id", "name", "job", "phone_number", "email"};
+        String selection = "name LIKE ?";
+        String[] selectionArgs = {"%" + name + "%"};
+        Cursor cursor = db.query("contacts", columns, selection, selectionArgs, null, null, null);
 
         return cursor;
     }
+
+//    public Cursor getContact(String name) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        String query = "SELECT * FROM " + TABLE_CONTACTS + " WHERE " + KEY_NAME + " REGEXP '" + name + "';";
+//        Cursor cursor = db.rawQuery(query, null);
+//
+////        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID, KEY_NAME, KEY_JOB, KEY_PH_NO, KEY_EMAIL }, KEY_NAME + " LIKE ?",
+////                new String[] { "%" + name + "%" }, null, null, KEY_NAME, null);
+////        if (cursor != null)
+////            cursor.moveToFirst();
+//
+////        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(3),
+////                cursor.getString(4), cursor.getString(2));
+//
+//        return cursor;
+//    }
 
 //    Contact getContact(int id) {
 //        SQLiteDatabase db = this.getReadableDatabase();

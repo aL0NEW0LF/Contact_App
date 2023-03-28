@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -54,6 +55,11 @@ public class Search extends AppCompatActivity {
 
     private void getContact(String name) {
         Cursor cursor1 = (Cursor) db.getContact(name);
+
+        if (listView.getAdapter() != null && listView.getCount() > 0) {
+            ((ContactsListAdapter) adapter).clear(); // clear the adapter if it already has items
+            Log.i("Listview", "adapter cleared");
+        }
 
         if(cursor1.getCount() == 0) {
             Toast.makeText(this, "No Contacts", Toast.LENGTH_SHORT).show();
